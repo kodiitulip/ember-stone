@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo6r8pskhywbg"]
+
+[ext_resource type="Script" path="res://Scenes/Prototypes/Clicker/prototype_clicker.gd" id="1_5153p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dqkhi"]
+font_size = 40
+
+[node name="PrototypeClicker" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5153p")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Stardust: <value>"
+label_settings = SubResource("LabelSettings_dqkhi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -40.0
+offset_right = 160.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Create Stardust"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
