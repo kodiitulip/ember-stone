@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1nwu8ohayk31"]
+[gd_scene load_steps=6 format=3 uid="uid://d1nwu8ohayk31"]
 
+[ext_resource type="Script" path="res://Scenes/UserInterface/user_interface.gd" id="1_3slmp"]
 [ext_resource type="PackedScene" uid="uid://dnxk5cdm60pu2" path="res://Scenes/Prototypes/Generator/prototype_generator.tscn" id="1_n5ewq"]
+[ext_resource type="PackedScene" uid="uid://bo6r8pskhywbg" path="res://Scenes/Prototypes/Clicker/prototype_clicker.tscn" id="3_0ibp0"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_041fl"]
 color = Color(0.227451, 0.227451, 0.227451, 1)
@@ -22,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3slmp")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -61,9 +64,14 @@ theme_override_constants/margin_bottom = 16
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer"]
 layout_mode = 2
 
-[node name="LinkButton" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer"]
+[node name="Generator" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Prototype Generator"
+underline = 1
+
+[node name="Clicker" type="LinkButton" parent="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Prototype Clicker"
 underline = 1
 
 [node name="HSeparator" type="HSeparator" parent="HBoxContainer/LeftPanel/VBoxContainer"]
@@ -97,9 +105,17 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_746lm")
 
 [node name="MainView" type="Control" parent="HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 5.65
 
 [node name="PrototypeGenerator" parent="HBoxContainer/MainView" instance=ExtResource("1_n5ewq")]
 layout_mode = 1
+
+[node name="PrototypeClicker" parent="HBoxContainer/MainView" instance=ExtResource("3_0ibp0")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/Generator" to="." method="_on_generator_link_pressed"]
+[connection signal="pressed" from="HBoxContainer/LeftPanel/VBoxContainer/Navigator/MarginContainer/VBoxContainer/Clicker" to="." method="_on_clicker_link_pressed"]
