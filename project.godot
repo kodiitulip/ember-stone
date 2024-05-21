@@ -44,7 +44,3 @@ folder_colors={
 "res://Scenes/": "blue",
 "res://Scripts/": "pink"
 }
-
-[rendering]
-
-environment/defaults/default_clear_color=Color(0.141176, 0.141176, 0.141176, 1)
