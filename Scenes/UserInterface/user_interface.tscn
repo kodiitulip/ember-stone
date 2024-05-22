@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1nwu8ohayk31"]
+[gd_scene load_steps=7 format=3 uid="uid://d1nwu8ohayk31"]
 
 [ext_resource type="Script" path="res://Scenes/UserInterface/user_interface.gd" id="1_3slmp"]
 [ext_resource type="PackedScene" uid="uid://dnxk5cdm60pu2" path="res://Scenes/Prototypes/Generator/prototype_generator.tscn" id="1_n5ewq"]
+[ext_resource type="Script" path="res://Scripts/Data/resource_label.gd" id="2_40248"]
 [ext_resource type="PackedScene" uid="uid://bo6r8pskhywbg" path="res://Scenes/Prototypes/Clicker/prototype_clicker.tscn" id="3_0ibp0"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_041fl"]
@@ -96,9 +97,12 @@ theme_override_constants/margin_bottom = 16
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftPanel/VBoxContainer/Resources/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="HBoxContainer/LeftPanel/VBoxContainer/Resources/MarginContainer/VBoxContainer"]
+[node name="StardustLabel" type="Label" parent="HBoxContainer/LeftPanel/VBoxContainer/Resources/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Stardust : {stardust}"
+text = "Stardust :"
+script = ExtResource("2_40248")
+resource_name = "Stardust"
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
 layout_mode = 2
